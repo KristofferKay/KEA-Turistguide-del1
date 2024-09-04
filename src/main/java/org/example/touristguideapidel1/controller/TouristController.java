@@ -49,4 +49,9 @@ public class TouristController {
     }
 
     //delete by name
+    @PostMapping("delete/{name}")
+    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name){
+        TouristAttraction deleteAttraction = touristService.deleteAttraction(name);
+        return new ResponseEntity<>(deleteAttraction, HttpStatus.OK);
+    }
 }

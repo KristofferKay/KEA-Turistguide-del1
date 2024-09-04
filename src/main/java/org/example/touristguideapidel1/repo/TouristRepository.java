@@ -30,16 +30,12 @@ public class TouristRepository {
     }
 
     public TouristAttraction getAllAttractionsByName(String name) {
-        try {
             for (TouristAttraction t : touristAttractions) {
                 if (t.getName().equalsIgnoreCase(name)) {
                     return t;
                 }
             }
             return null;
-        } catch (Exception e) {
-            throw new RuntimeException(String.valueOf(HttpStatus.NOT_FOUND));
-        }
     }
 
     public TouristAttraction addAttraction(String name, String description){
@@ -48,4 +44,24 @@ public class TouristRepository {
          return touristAttraction;
     }
 
+    public TouristAttraction updateAttraction(String name, String description) {
+        for (TouristAttraction t : touristAttractions) {
+            if (t.getName().equalsIgnoreCase(name)) {
+                t.setName(name);
+                t.setDescription(description);
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public TouristAttraction deleteAttraction(String name){
+        for (TouristAttraction t : touristAttractions){
+            if (t.getName().equalsIgnoreCase(name)){
+                touristAttractions.remove(t);
+                return t;
+            }
+        }
+        return null;
+    }
 }
