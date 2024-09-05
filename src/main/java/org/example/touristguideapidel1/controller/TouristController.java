@@ -17,20 +17,16 @@ public class TouristController {
     public TouristController(TouristService touristService){
         this.touristService = touristService;
     }
-
     //All
     @GetMapping("")
     public ResponseEntity<List<TouristAttraction>> getAllAttractions(){
         List<TouristAttraction> messagesModels = touristService.getAllAttractions();
         return new ResponseEntity<>(messagesModels, HttpStatus.OK);
     }
-
-
     //Only by name
     @GetMapping("/{name}")
     public ResponseEntity<TouristAttraction> getAllAttractionsByName(@PathVariable String name){
-        TouristAttraction touristServiceAllAttractionsByName = touristService.getAllAttractionsByName(name);
-        return new ResponseEntity<>(touristServiceAllAttractionsByName, HttpStatus.OK);
+        return touristService.getAllAttractionsByName(name);
     }
 
     //Add new

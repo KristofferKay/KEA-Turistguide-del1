@@ -22,8 +22,13 @@ public class TouristService {
         return touristRepository.getAllAttractions();
     }
 
-    public TouristAttraction getAllAttractionsByName(String name){
-        return touristRepository.getAllAttractionsByName(name);
+    public ResponseEntity<TouristAttraction> getAllAttractionsByName(String name){
+        TouristAttraction attraction = touristRepository.getAllAttractionsByName(name);
+        if (attraction != null) {
+            return new ResponseEntity<>(attraction, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
     public ResponseEntity<String> addAttraction(TouristAttraction touristAttraction) {
         if (touristRepository.addAttraction(touristAttraction)) {
