@@ -1,10 +1,6 @@
 package org.example.touristguideapidel1.repo;
 
-import org.example.touristguideapidel1.controller.TouristController;
 import org.example.touristguideapidel1.model.TouristAttraction;
-import org.example.touristguideapidel1.service.TouristService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -22,10 +18,8 @@ public class TouristRepository {
     }
 
     public void populate() {
-        touristAttractions.add(new TouristAttraction("Eiffel Tower", "An iconic wrought-iron lattice tower in Paris, France."));
-        touristAttractions.add(new TouristAttraction("Great Wall of China", "A series of fortifications made of stone, brick, and other materials, built along the northern borders of China."));
-        touristAttractions.add(new TouristAttraction("Statue of Liberty", "A colossal neoclassical sculpture on Liberty Island in New York Harbor, USA."));
-        touristAttractions.add(new TouristAttraction("Colosseum", "An ancient amphitheater in Rome, Italy, known for its grandeur and history."));
+        touristAttractions.add(new TouristAttraction("Københavns Zoo", "København Zoo eller Zoologisk Have i København er på 11 ha og en af Europas ældste zoologiske haver. Den ligger på Frederiksberg ved Roskildevej på Valby Bakke. København Zoo har 181 fuldtidsansatte og et årligt besøgstal på ca. 1.3 mio. Der er over 3.500 dyr fordelt på 227 arter i København Zoo."));
+        touristAttractions.add(new TouristAttraction("Amalienborg slot", "Amalienborg er et slotsanlæg i Frederiksstaden i København og er hovedresidens for det danske Kongehus. Anlægget består af fire næsten ens palæer, der omkranser en ottekantet slotsplads. Amalienborg er et hovedværk i dansk bygningskunst og nok det fornemste stykke rokokoarkitektur i Danmark og måske et af de fineste eksempler i Europa"));
     }
 
 
@@ -42,30 +36,31 @@ public class TouristRepository {
             return null;
     }
 
-    public TouristAttraction addAttraction(String name, String description){
-         TouristAttraction touristAttraction = (new TouristAttraction(name,description));
-         touristAttractions.add(touristAttraction);
-         return touristAttraction;
+    public boolean addAttraction(TouristAttraction touristAttraction){
+        if (touristAttractions.add(touristAttraction)){
+            return true;
+        }
+         return false;
     }
 
-    public TouristAttraction updateAttraction(String name, String description) {
-        for (TouristAttraction t : touristAttractions) {
-            if (t.getName().equalsIgnoreCase(name)) {
-                t.setName(name);
-                t.setDescription(description);
-                return t;
+    public TouristAttraction updateAttraction(TouristAttraction touristAttraction) {
+        for(int i =0; i < touristAttractions.size(); i++){
+            if(touristAttractions.get(i).getName().equalsIgnoreCase(touristAttraction.getName())){
+                touristAttractions.get(i).setName(touristAttraction.getName());
+                touristAttractions.get(i).setDescription(touristAttraction.getDescription());
+                return touristAttractions.set(i, touristAttraction);
             }
         }
-        return null;
+        return touristAttraction;
     }
 
-    public TouristAttraction deleteAttraction(String name){
+    public boolean deleteAttraction(String name){
         for (TouristAttraction t : touristAttractions){
             if (t.getName().equalsIgnoreCase(name)){
                 touristAttractions.remove(t);
-                return t;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }

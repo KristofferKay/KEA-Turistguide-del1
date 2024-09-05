@@ -1,9 +1,17 @@
-body {
+* {
+
+    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: grid;
+    min-height: 100vh;
+}
+
+
+main {
 }
 
 img {
@@ -12,13 +20,96 @@ img {
     margin-bottom: 25px;
 }
 
+h1 {
+    margin: 1px;
+}
+
+p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+}
+
+.selectedAttractions {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin-left: 20px;
+}
+
+.selectedAttractions li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.selectedAttractions img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.attractiondesc {
+    margin: 10px 0;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
 ul {
     list-style-type: none;
 }
 
-p, h3 {
+p, h3, img {
     margin: 5px;
 }
+nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
 
+}
 
+.selectedAttractions  {
+    display: flex;
+    grid-template-columns:  1fr;
+}
+
+.navLogo {
+    width: 80px;
+    height: 80px;
+    align-items: center;
+}
+
+.navLogoText {
+    align-items: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
 

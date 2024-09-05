@@ -1,8 +1,9 @@
 package org.example.touristguideapidel1.service;
 
-import org.example.touristguideapidel1.controller.TouristController;
 import org.example.touristguideapidel1.model.TouristAttraction;
 import org.example.touristguideapidel1.repo.TouristRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,16 +25,23 @@ public class TouristService {
     public TouristAttraction getAllAttractionsByName(String name){
         return touristRepository.getAllAttractionsByName(name);
     }
-
-    public TouristAttraction addAttraction(String name, String description){
-        return touristRepository.addAttraction(name, description);
+    public ResponseEntity<String> addAttraction(TouristAttraction touristAttraction) {
+        if (touristRepository.addAttraction(touristAttraction)) {
+            return new ResponseEntity<>("Attraction added successfully", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Failed to add attraction", HttpStatus.NOT_FOUND);
+        }
     }
 
-    public TouristAttraction updateAttraction(String name, String description){
-        return touristRepository.updateAttraction(name, description);
+    public TouristAttraction updateAttraction(TouristAttraction touristAttraction){
+        return touristRepository.updateAttraction(touristAttraction);
     }
 
-    public TouristAttraction deleteAttraction(String name){
-        return touristRepository.deleteAttraction(name);
+    public ResponseEntity<String> deleteAttraction(String name) {
+        if(touristRepository.deleteAttraction(name)){
+            return new ResponseEntity<>("Attraction deleted", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Attraction not deleted", HttpStatus.NOT_FOUND);
+        }
     }
 }

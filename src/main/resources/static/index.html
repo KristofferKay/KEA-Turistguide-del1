@@ -9,26 +9,45 @@
 
 </head>
 <body>
+  <nav>
+    <img class="navLogo" src="img/icon.png" alt="logo">
+    <h2 class="navLogoText">TuristGuiden</h2>
+  </nav>
   <h1>Velkommen til Turistguiden</h1>
   <p>Velkommen til din ultimative guide til turistattraktioner! Udforsk alle de fantastiske attraktioner som København har at byde på. </p>
 
   <h2>Udvalgte attraktioner</h2>
-  <ul>
+  <ul class="selectedAttractions">
     <li>
       <h3>Københavns zoo</h3>
-      <p> descp</p>
-      <img src="https://gdkfiles.visitdenmark.com/files/382/219388_ZOO_PR_photo_2.jpg?width=610&height=343&mode=crop" alt="Zoo" >
+      <p class="attractiondesc">København Zoo eller Zoologisk Have i København er på 11 ha og en af Europas ældste zoologiske haver. Den ligger på Frederiksberg ved Roskildevej på Valby Bakke. København Zoo har 181 fuldtidsansatte og et årligt besøgstal på ca. 1.3 mio. Der er over 3.500 dyr fordelt på 227 arter i København Zoo.</p>
+      <a href="https://da.wikipedia.org/wiki/K%C3%B8benhavn_Zoo">
+        <button class="button">Se mere</button>
+      </a>
+      <img src="img/panda.png" alt="Zoo" >
     </li>
 
     <li>
       <h3>Amalienborg slot</h3>
-      <p> descp</p>
-      <img src="https://gdkfiles.visitdenmark.com/files/382/171919_Amalienborg_sunset_Martin_Heiberg.jpg?width=610&height=343&mode=crop" alt="Slot" >
+      <p class="attractiondesc">Amalienborg er et slotsanlæg i Frederiksstaden i København og er hovedresidens for det danske Kongehus. Anlægget består af fire næsten ens palæer, der omkranser en ottekantet slotsplads. Amalienborg er et hovedværk i dansk bygningskunst og nok det fornemste stykke rokokoarkitektur i Danmark og måske et af de fineste eksempler i Europa</p>
+      <a href="https://en.wikipedia.org/wiki/Amalienborg">
+        <button class="button">Se mere</button>
+      </a>
+      <img src="img/amalienborg.png" alt="Slot" >
     </li>
   </ul>
 
   <h2>Endpoints links</h2>
+  <a href="http://localhost:8181/attractions">Vis alle attraktioner vores liste</a>
+  <a href="http://localhost:8181/attractions/københavns zoo">Se alt info om Københavns Zoo</a>
 
+  <footer>
+    <p>
+    <ul>
+      <li>Kontakt os på: <a href="mailto:">mail@mail.com</a></li>
+      <li>© 2024. Alle rettigheder forbeholdes.</li>
 
+  </ul>
+  </footer>
 </body>
 </html>
