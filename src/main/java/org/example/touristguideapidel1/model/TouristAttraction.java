@@ -1,7 +1,5 @@
 package org.example.touristguideapidel1.model;
 
-import org.springframework.http.HttpStatus;
-
 public class TouristAttraction {
     private String name;
     private String description;
@@ -12,10 +10,6 @@ public class TouristAttraction {
     }
 
     public TouristAttraction(){
-
-    }
-
-    public TouristAttraction(HttpStatus httpStatus){
 
     }
 
@@ -36,11 +30,4 @@ public class TouristAttraction {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "TouristAttraction{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

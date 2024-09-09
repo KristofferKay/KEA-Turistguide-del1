@@ -38,6 +38,7 @@ public class TouristService {
         }
     }
 
+    //TODO add if else Http status
     public TouristAttraction updateAttraction(TouristAttraction touristAttraction){
         return touristRepository.updateAttraction(touristAttraction);
     }
